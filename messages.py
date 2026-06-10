@@ -7,3 +7,15 @@ def INCORRECT_FILE_FORMAT(line: str):
     Esperado: <string1> <string2>
     Recebido:{line}
     """
+
+def RESULTS_MESSAGE(s1: str, s2: str, answer:str):
+    return f"""------------------ RESULTADOS ------------------
+INPUTS:
+String1: {s1}
+String2: {s2}
+
+OUTPUTS:
+Menor Supersequência: {answer}
+Tamanho: {len(answer)}
+------------------------------------------------
+"""
