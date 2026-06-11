@@ -1,5 +1,6 @@
 import messages
 from sys import argv
+from time import time
 
 # Shortness Common Supersequence
 class SCS:
@@ -74,6 +75,7 @@ class SCS:
 
 
 if __name__ == '__main__':
+    start = time()
     args = argv[1:]
     arglen = len(args)
     if arglen == 0:
@@ -92,3 +94,7 @@ if __name__ == '__main__':
     
     else:
        print(messages.EXCED_ARGUMENTS_ERROR(arglen))
+    
+    duration = time() - start
+    duration = round(duration, 4)
+    print(f'Duração: {duration}s')
