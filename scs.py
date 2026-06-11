@@ -1,4 +1,5 @@
 import messages
+from sys import argv
 
 # Shortness Common Supersequence
 class SCS:
@@ -71,6 +72,23 @@ class SCS:
         return messages.RESULTS_MESSAGE(self.s1, self.s2, self.solve())
 
 
- 
-scs = SCS('./tests/test_5.txt')
-print(scs)
+
+if __name__ == '__main__':
+    args = argv[1:]
+    arglen = len(args)
+    if arglen == 0:
+        print(SCS('./tests/test_0.txt'))
+    
+    elif arglen == 1:
+        arg = args[0]
+        
+        if arg == '-a' or arg == '--all':
+            for i in range(6):
+                print(SCS(f'./tests/test_{i}.txt'))
+        elif arg == '-h' or arg == '--help':
+            print(messages.HELP_TEXT())
+        else:
+            print(SCS(arg))
+    
+    else:
+       print(messages.EXCED_ARGUMENTS_ERROR(arglen))
